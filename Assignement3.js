@@ -1,44 +1,65 @@
 /*
- 3. Assignement 
- grocery shopping
 
- */
+Using promises/async await/fetch get the random todos from the json placeholder api. And log all the completed todos to the console.  API Endpoint : ​https://jsonplaceholder.typicode.com/todos 
 
-var shoppingList = [];
+// */
+// console.log("hello")
+// async function fetchUsers(endpoint) {
+//     const res = await fetch(endpoint);
+//     let data = await res.json();
+  
+//     data = data.map(user => user.username);
+  
+//     console.log(data);
+//   }
+  
+//   fetchUsers('https://jsonplaceholder.typicode.com/todos');
 
-function add_item(item){
-    shoppingList.push(item);
+
+console.log('Fetch API');
+
+// https://jsonplaceholder.typicode.com/todos
+
+// Making a get request
+fetch('https://jsonplaceholder.typicode.com/posts')
+.then(response=>response.json())
+.then(data=>console.log(data))
+
+let obj = {
+    userId:254,
+    title:"Some Title",
+    body:'lorem ipsum',
 }
 
-function remove_item(item){
-    for (var i = 0; i <= shoppingList.length; i++){
-        if (shoppingList[i] === item) shoppingList.splice(i, 1);
-    }
+// Make a post Request
+fetch('https://jsonplaceholder.typicode.com/posts',{
+    method:'POST',
+    body: JSON.stringify(obj)
+}).then(response=>response.json())
+.then(data=>console.log(data))
+
+
+// jokes api
+
+async function fetchJokes(){
+    const response = await fetch('https://api.chucknorris.io/jokes/random');
+    const data = await response.json();
+
+    console.log(data);
 }
 
-function view_list(){
-    for (var i = 0; i < shoppingList.length; i++){
-        if (shoppingList.length == 0)
-        return;
-        else
-        console.log("- " + shoppingList[i]);
-    }
+fetchJokes();
+
+
+let obj1 = {
+    name:'Prasad',
+    age:24,
+    canDrive:true,
 }
 
-function mark_item(item){
-    for (var i = 0; i <= shoppingList.length; i++){
-        if (shoppingList[i] == item) console.log("X " + shoppingList[i]);
-    }
-}
+console.log(obj1);
+let str = JSON.stringify(obj1);
+console.log(str)
 
-view_list();
-add_item('banana');
-add_item('apple');
-view_list();
-add_item('testies');
-view_list();
-remove_item('testies');
-view_list();
-mark_item('apple');
-
-
+let strobj = JSON.parse(str);
+console.log(strobj)
