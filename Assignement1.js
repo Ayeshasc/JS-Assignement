@@ -1,19 +1,16 @@
 /*
-/*
-Write a program which does the following things: 
-1. Takes a positive number from the user. 
-2. Makes an array of numbers till the number given by user 
-3. Use higher order function to filter the odd numbers 
-4. Generate and array of the cubes of the filtered numbers 
+write a java script program that will iterate over an array of colors and cahnge the bacground color of after 5 second
+*/
 
- */
 
-console.log("Higher Order Functions");
-let arr = [1,2,3,4,5,6]
+let colors = ['red','blue','yellow','pink','black'];
 
-let even = arr.filter(el=>el%2==0);
 
-let evenSquares = arr.filter(el=>el%2==0).map(el=>el**2);
+console.log(colors);
+const list = document.querySelector('#list');
+console.log(list);
 
-console.log(even);
-console.log(evenSquares);
+
+colors.setAttribute('style','background-color:blue');
+colors.classList.add('blue');
+

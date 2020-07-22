@@ -1,65 +1,22 @@
-/*
-
-Using promises/async await/fetch get the random todos from the json placeholder api. And log all the completed todos to the console.  API Endpoint : ​https://jsonplaceholder.typicode.com/todos 
-
-// */
-// console.log("hello")
-// async function fetchUsers(endpoint) {
-//     const res = await fetch(endpoint);
-//     let data = await res.json();
+function currentTime() {
+    var date = new Date(); /* creating object of Date class */
+    var hour = date.getHours();
+    var min = date.getMinutes();
+    var sec = date.getSeconds();
+    hour = updateTime(hour);
+    min = updateTime(min);
+    sec = updateTime(sec);
+    document.getElementById("clock").innerText = hour + " : " + min + " : " + sec; /* adding time to the div */
+    var t = setTimeout(function(){ currentTime() }, 1000); /* setting timer */
+  }
   
-//     data = data.map(user => user.username);
+  function updateTime(k) {
+    if (k < 10) {
+      return "0" + k;
+    }
+    else {
+      return k;
+    }
+  }
   
-//     console.log(data);
-//   }
-  
-//   fetchUsers('https://jsonplaceholder.typicode.com/todos');
-
-
-console.log('Fetch API');
-
-// https://jsonplaceholder.typicode.com/todos
-
-// Making a get request
-fetch('https://jsonplaceholder.typicode.com/posts')
-.then(response=>response.json())
-.then(data=>console.log(data))
-
-let obj = {
-    userId:254,
-    title:"Some Title",
-    body:'lorem ipsum',
-}
-
-// Make a post Request
-fetch('https://jsonplaceholder.typicode.com/posts',{
-    method:'POST',
-    body: JSON.stringify(obj)
-}).then(response=>response.json())
-.then(data=>console.log(data))
-
-
-// jokes api
-
-async function fetchJokes(){
-    const response = await fetch('https://api.chucknorris.io/jokes/random');
-    const data = await response.json();
-
-    console.log(data);
-}
-
-fetchJokes();
-
-
-let obj1 = {
-    name:'Prasad',
-    age:24,
-    canDrive:true,
-}
-
-console.log(obj1);
-let str = JSON.stringify(obj1);
-console.log(str)
-
-let strobj = JSON.parse(str);
-console.log(strobj)
+  currentTime(); /* calling currentTime() function to initiate the process */
